@@ -19,9 +19,14 @@ export class Register extends Component {
     this.setState({ [name]: value })
   }
 
+  onSuccess = () => {
+    this.props.navigation.navigate('AppNavigator')
+  }
+
   submit = () => {
-    // TODO: smake a fetch call to submit registration info
-    // TODO: render errors from fetch call
+    // TODO: smake a fetch call to submit login info
+    // TODO: render errors from fetch call on failure
+    this.onSuccess()
   }
 
   render() {
