@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Text, View } from 'react-native'
-import { List, ListItem } from 'react-native-elements'
+import { View } from 'react-native'
+import { List, ListItem, Text } from 'react-native-elements'
 
 export const VisitsList = (props) => {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { View } from 'react-native'
+import { Button, FormLabel, FormInput, FormValidationMessage, Text } from 'react-native-elements'
 
 
 export class Login extends Component {

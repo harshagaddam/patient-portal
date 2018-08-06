@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import { Text } from 'react-native-elements'
 import AnimatedEllipsis from 'react-native-animated-ellipsis'
 
 import { generateVisits } from '../../utils/generateVisits'

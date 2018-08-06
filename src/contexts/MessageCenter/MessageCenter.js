@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import { Text } from 'react-native-elements'
 
 export class MessageCenter extends Component {
   render() {
