@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { createStackNavigator } from 'react-navigation'
 
 import AppNavigator from './src/navigators/AppNavigator'
 import Login from './src/contexts/Auth/Login'
