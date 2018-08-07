@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Button, FormLabel, FormInput, FormValidationMessage, Text } from 'react-native-elements'
 
-import { colors, fonts } from '../../utils/styleVariables'
+import { colors } from '../../utils/styleVariables'
 
 import AuthStyles from './AuthStyles'
 

@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
 import { colors, fonts, layouts } from '../../utils/styleVariables'
+
+const { deviceWidth } = Dimensions.get('window').width
 
 export default VisitsStyles = StyleSheet.create({
 
@@ -22,8 +24,20 @@ export default VisitsStyles = StyleSheet.create({
     fontFamily: fonts.montserratSemiBold
   },
 
+  listRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+
+  scrollContainer: {
+    ...layouts.container,
+    justifyContent: 'flex-start',
+    width: deviceWidth
+  },
+
   text: {
     color: colors.grey,
-    fontFamily: fonts.montserratLight
+    fontFamily: fonts.montserrat
   }
 })

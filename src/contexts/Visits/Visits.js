@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { Text } from 'react-native-elements'
 import AnimatedEllipsis from 'react-native-animated-ellipsis'
 
@@ -36,9 +36,11 @@ export class Visits extends Component {
 
     } else {
       return (
-        <View style={VisitsStyles.container}>
-          <VisitsList visits={this.state.visits} />
-        </View>
+        <ScrollView contentContainerStyle={VisitsStyles.scrollContainer}>
+          <VisitsList
+            navigation={this.props.navigation}
+            visits={this.state.visits} />
+        </ScrollView>
       )
     }
   }
