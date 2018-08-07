@@ -35,13 +35,19 @@ export class VisitsList extends Component {
 
   render() {
     return (
-      <List containerStyle={{ width: '100%' }}>
+      <List containerStyle={{ flex: 1, width: '100%' }}>
         {this.props.visits.map((visit, index) => (
           <ListItem
             key={index}
             onPress={() => { this.goToVisit(visit) }}
             title={this.doctorName(visit.doctor)}
-            subtitle={this.renderSubtitle(visit)}
+            titleStyle={VisitsStyles.textDark}
+            subtitle={
+              <View style={{ paddingLeft: 15 }}>
+                <Text style={VisitsStyles.text}>{moment(visit.date).format('MMM D, YYYY')}</Text>
+                <Text style={VisitsStyles.text}>${visit.totalCost}</Text>
+              </View>
+            }
           />
         ))}
       </List>

@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation'
 
 import Home from '../contexts/Home/Home'
 import MessageCenter from '../contexts/MessageCenter/MessageCenter'
-import Visit from '../contexts/Visits/VisitsList'
+import Visit from '../contexts/Visits/Visit'
 import Visits from '../contexts/Visits/Visits'
 
 import { fonts } from '../utils/styleVariables'

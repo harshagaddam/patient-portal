@@ -19,25 +19,41 @@ export default VisitsStyles = StyleSheet.create({
     fontFamily: fonts.montserrat,
   },
 
+  header: {
+    padding: 30,
+    width: '100%'
+  },
+
   headerText: {
     color: colors.primary,
-    fontFamily: fonts.montserratSemiBold
+    fontFamily: fonts.montserratSemiBold,
   },
 
   listRow: {
-    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'flex-start',
+    paddingVertical: 10
   },
 
   scrollContainer: {
-    ...layouts.container,
-    justifyContent: 'flex-start',
     width: deviceWidth
   },
 
   text: {
     color: colors.grey,
-    fontFamily: fonts.montserrat
-  }
+    fontFamily: fonts.montserrat,
+    lineHeight: 20,
+  },
+
+  textDark: {
+    color: 'black',
+    fontFamily: fonts.montserrat,
+    lineHeight: 20,
+  },
+
+  visitContainer: {
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    width: '100%'
+  },
 })

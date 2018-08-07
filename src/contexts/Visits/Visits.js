@@ -15,7 +15,6 @@ export class Visits extends Component {
 
   componentDidMount = async () => {
     const visits = await generateVisits()
-    console.log('visits', visits)
     this.setState({ visits, loading: false })
   }
 
