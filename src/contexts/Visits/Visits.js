@@ -4,29 +4,26 @@ import { Text } from 'react-native-elements'
 import AnimatedEllipsis from 'react-native-animated-ellipsis'
 
 import { generateVisits } from '../../utils/generateVisits'
-
 import VisitsList from './VisitsList'
-
+import VisitsStyles from './VisitsStyles'
 
 export class Visits extends Component {
   state = {
-    loading: false,
+    loading: true,
     visits: []
   }
 
-  componentDidMount() {
-    this.setState({ loading: true })
-
-    const visits = generateVisits()
+  componentDidMount = async () => {
+    const visits = await generateVisits()
+    console.log('visits', visits)
     this.setState({ visits, loading: false })
   }
- 
 
   renderLoading = () => {
     return (
-      <View>
-        <Text>
-          Loading Visits
+      <View style={VisitsStyles.container}>
+        <Text style={VisitsStyles.text}>
+          Loading
           <AnimatedEllipsis />
         </Text>
       </View>
@@ -39,8 +36,7 @@ export class Visits extends Component {
 
     } else {
       return (
-        <View>
-          <Text h1>Visits</Text>
+        <View style={VisitsStyles.container}>
           <VisitsList visits={this.state.visits} />
         </View>
       )

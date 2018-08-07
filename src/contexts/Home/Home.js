@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native-elements'
+import { View } from 'react-native'
+import { Button, Text } from 'react-native-elements'
+
+import { colors } from '../../utils/styleVariables'
+import HomeStyles from './HomeStyles'
 
 export class Home extends Component {
   render() {
     return (
-      <View style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        <Text h1>Welcome!</Text>
+      <View style={HomeStyles.container}>
+        <Text h1 style={HomeStyles.headerText}>Welcome!</Text>
 
-        <Button
-          small
-          raised
+        <Button raised
           title='Your Visits'
           onPress={() => { this.props.navigation.navigate('Visits') }}
+          style={HomeStyles.button}
+          backgroundColor={colors.primary}
         />
 
-        <Button
-          small
-          raised
+        <Button raised
           title='Message Center'
           onPress={() => { this.props.navigation.navigate('MessageCenter') }}
+          style={HomeStyles.button}
+          backgroundColor={colors.primary}
         />
       </View>
     )

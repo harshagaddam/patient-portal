@@ -1,19 +1,38 @@
-import { StackNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation'
 
 import Home from '../contexts/Home/Home'
 import MessageCenter from '../contexts/MessageCenter/MessageCenter'
 import Visits from '../contexts/Visits/Visits'
 
-const AppNavigator = StackNavigator(
+import { fonts } from '../utils/styleVariables'
+
+const headerStyles = {
+  headerBackTitleStyle: { fontFamily: fonts.montserrat },
+  headerTitleStyle: { fontFamily: fonts.montserrat },
+}
+
+const AppNavigator = createStackNavigator(
   {
     Home: {
-      screen: Home
+      screen: Home,
+      navigationOptions: () => ({
+        ...headerStyles,
+        title: 'Home'
+      }),
     },
     MessageCenter: {
-      screen: MessageCenter
+      screen: MessageCenter,
+      navigationOptions: () => ({
+        ...headerStyles,
+        title: 'Message Center'
+      }),
     },
     Visits: {
-      screen: Visits
+      screen: Visits,
+      navigationOptions: () => ({
+        ...headerStyles,
+        title: 'Visits'
+      }),
     }
   },
   {

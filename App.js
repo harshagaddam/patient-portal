@@ -19,10 +19,10 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: 'Login',
+    navigationOptions: {
+      header: null
+    }
   },
-  {
-    headerMode: 'none'
-  }
 )
 
 export default class App extends Component {
