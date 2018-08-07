@@ -1,87 +1,102 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { View } from 'react-native'
+import { Button, Text } from 'react-native-elements'
 
+import { colors } from '../../utils/styleVariables'
+
+import AuthStyles from './AuthStyles'
+import RegisterForm from './RegisterForm'
 
 export class Register extends Component {
   state = {
+    emailError: false,
+    passwordError: false,
+    passwordConfirmationError: false,
+
     email: null,
     password: null,
     passwordConfirmation: null
+  }
+
+  passwordConfirmationErrorMsg = () => {
+    const { password, passwordConfirmation } = this.state
+
+    if (!passwordConfirmation) {
+      return 'Please type your password again to confirm'
+
+    } else if (passwordConfirmation !== password) {
+      return 'Password and password confirmation do not match'
+
+    } else return null
   }
 
   goToLogin = () => {
     this.props.navigation.navigate('Login')
   }
 
-  handleEmailTextChange = (value) => {
+  handleTextChange = (name, value) => {
     this.setState({ [name]: value })
   }
 
+  onSuccess = () => {
+    this.props.navigation.navigate('AppNavigator')
+  }
+
+  setErrors = () => {
+    const { email, password, passwordConfirmation } = this.state
+    const passwordsMatch = password === passwordConfirmation
+
+    if (!email) {
+      this.setState({ emailError: true })
+    }
+
+    if (!password) {
+      this.setState({ passwordError: true })
+    }
+
+    if (!passwordConfirmation || !passwordsMatch) {
+      this.setState({ passwordConfirmationError: true })
+    }
+  }
+
   submit = () => {
-    // TODO: smake a fetch call to submit registration info
-    // TODO: render errors from fetch call
+    const { email, password, passwordConfirmation } = this.state
+    const passwordsMatch = password === passwordConfirmation
+
+    this.setErrors()
+
+    if (email && password && passwordConfirmation && passwordsMatch) {
+      // TODO: make a fetch call to submit login info
+      // TODO: render errors from fetch call on failure
+      this.onSuccess()
+    }
   }
 
   render() {
-    const emailError = this.state.email ? null : 'Email must not be blank'
-    const passwordError = this.state.password ? null : 'Password must not be blank'
-    
-    const passwordConfirmationError = () => {
-      if (!this.state.passwordConfirmation) {
-        return 'Please type your password again to confirm'
-
-      } else if (this.state.passwordConfirmation !== this.state.password) {
-        return 'Password and password confirmation do not match'
-
-      } else return null
-    }
-
     return (
-      <View style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <View style={AuthStyles.container}>
 
-        <Text h1>Patient Portal</Text>
-        <Text h3>Register</Text>
+        <Text h1 style={AuthStyles.headerText}>Patient Portal</Text>
 
-        <FormLabel>Email</FormLabel>
-        <FormInput
-          name='email'
-          onChangeText={this.handleTextChange}/>
-        <FormValidationMessage>{emailError}</FormValidationMessage>
-
-        <FormLabel>Password</FormLabel>
-        <FormInput
-          name='password'
-          secureTextEntry
-          onChangeText={this.handleTextChange}/>
-        <FormValidationMessage>{passwordError}</FormValidationMessage>
-
-        <FormLabel>Confirm Password</FormLabel>
-        <FormInput
-          name='passwordConfirmation'
-          secureTextEntry
-          onChangeText={this.handleTextChange}/>
-        <FormValidationMessage>{passwordConfirmationError()}</FormValidationMessage>
-
-        <Button
-          large
-          raised
-          title='Register'
+        <RegisterForm
+          handleTextChange={this.handleTextChange}
+          textProps={this.state}
+          passwordConfirmationErrorMsg={this.passwordConfirmationErrorMsg()}
+        />
+  
+        <Button raised
+          title='REGISTER'
           onPress={this.submit}
+          style={AuthStyles.button}
+          backgroundColor={colors.primary}
         />
 
-
-        <Text h4>Have a Patient Portal account?</Text>
-        <Button
-          small
-          raised
-          title='Login'
+        <Text h5
           onPress={this.goToLogin}
-        />
+          style={AuthStyles.text}
+        >
+          Back to Login
+        </Text>
       </View>
     )
   }
