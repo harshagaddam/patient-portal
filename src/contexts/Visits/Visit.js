@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { ScrollView, View } from 'react-native'
-import { Text } from 'react-native-elements'
+import { Button, Text } from 'react-native-elements'
 
+import { colors } from '../../utils/styleVariables'
 import VisitsStyles from './VisitsStyles'
 
 export class Visit extends Component {
+
+  goToCreateMessage = () => {
+    // TODO
+    // this.props.navigation.navigate('Compose')
+  }
 
   renderProcedures = () => {
     const { visit } = this.props.navigation.state.params
@@ -38,6 +44,13 @@ export class Visit extends Component {
         <View style={VisitsStyles.visitContainer}>
           <Text style={VisitsStyles.textDark}>Total Cost: ${visit.totalCost}</Text>
         </View>
+
+        <Button raised
+          title='Send Message to Doctor'
+          onPress={this.goToCreateMessage}
+          style={[VisitsStyles.button, { width: 250 }]}
+          backgroundColor={colors.secondary}
+        />
       </ScrollView>
     )
   }

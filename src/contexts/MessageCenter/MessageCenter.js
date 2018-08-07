@@ -6,27 +6,32 @@ import { colors } from '../../utils/styleVariables'
 import MessageStyles from './MessageStyles'
 
 export class MessageCenter extends Component {
+  goTo = (screen) => {
+    // TODO: create message center views
+    // TODO: navigate to appropriate views
+  }
+
   render() {
     return (
       <View style={MessageStyles.container}>
 
         <Button raised
           title='Messages Received'
-          // onPress={() => { this.props.navigation.navigate('Received') }}
+          onPress={() => { this.goTo('Received') }}
           style={MessageStyles.button}
           backgroundColor={colors.primary}
         />
 
         <Button raised
           title='Messages Sent'
-          // onPress={() => { this.props.navigation.navigate('Sent') }}
+          onPress={() => { this.goTo('Sent') }}
           style={MessageStyles.button}
           backgroundColor={colors.primary}
         />
 
         <Button raised
           title='Send a Message'
-          // onPress={() => { this.props.navigation.navigate('Compose') }}
+          onPress={() => { this.goTo('Compose') }}
           style={MessageStyles.button}
           backgroundColor={colors.primary}
         />

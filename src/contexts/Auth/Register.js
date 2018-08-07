@@ -66,7 +66,7 @@ export class Register extends Component {
     this.setErrors()
 
     if (email && password && passwordConfirmation && passwordsMatch) {
-      // TODO: smake a fetch call to submit login info
+      // TODO: make a fetch call to submit login info
       // TODO: render errors from fetch call on failure
       this.onSuccess()
     }

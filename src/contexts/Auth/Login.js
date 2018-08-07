@@ -41,7 +41,7 @@ export class Login extends Component {
     this.setErrors()
 
     if (this.state.email && this.state.password) {
-      // TODO: smake a fetch call to submit login info
+      // TODO: make a fetch call to submit login info
       // TODO: render errors from fetch call on failure
       this.onSuccess()
     }
